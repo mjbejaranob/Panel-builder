@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Green Power Link for inquiries and support.">
-  <meta name="keywords" content="Contact, Map, Phone, Email, Green Power Link">
-  <title>Green Power Link | Contact Us</title>
+  <meta name="description" content="Request a quote from Green Power Link by submitting your project details.">
+  <meta name="keywords" content="Request Quote, Project Specification, ELV, Control Panels">
+  <title>Green Power Link | Request a Quote</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,29 +27,34 @@
     </div>
   </header>
   <main>
-    <section class="location-map container">
-      <h1>Our Location</h1>
-      <iframe
-        src="https://maps.google.com/maps?q=Bayswater%20Western%20Australia&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </section>
-    <section class="contact-info container">
-      <h2>Contact Details</h2>
-      <p>Phone: <a href="tel:+61812345678">+61 8 1234 5678</a></p>
-      <p>Email: <a href="mailto:info@greenpowerlink.com.au">info@greenpowerlink.com.au</a></p>
-      <h2>Send Us a Message</h2>
-      <form>
+    <section class="quote-form container">
+      <h1>Request a Quote</h1>
+      <form id="quoteForm">
         <label>Name</label>
         <input type="text" name="name" required>
         <label>Email</label>
         <input type="email" name="email" required>
-        <label>Message</label>
-        <textarea name="message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send</button>
+        <label>Phone</label>
+        <input type="tel" name="phone">
+        <label>Project Specifications</label>
+        <textarea name="specs" rows="5" required></textarea>
+        <label>Upload Files</label>
+        <input type="file" name="files" multiple>
+        <button type="submit" class="btn">Submit</button>
       </form>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <p>Sending your request...</p>
+        </div>
+      </div>
     </section>
+    <script>
+      document.getElementById('quoteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('modal').style.display = 'block';
+        // Implement email submission backend integration
+      });
+    </script>
   </main>
   <footer>
     <p>&copy; 2025 Green Power Link. All rights reserved.</p>
